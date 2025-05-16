@@ -81,38 +81,54 @@ body {
     font-weight: bold;
   }
   
-@media (max-width: 600px) {
-  table, thead, tbody, th, td, tr {
-    display: block;
+  @media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+  
+    thead {
+      display: none;
+    }
+  
+    tbody tr {
+      background-color: #fff;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+  
+    tbody td {
+      border: none;
+      padding: 6px 0;
+      font-size: 0.95em;
+      position: relative;
+    }
+  
+    tbody td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      color: #003366;
+      display: inline-block;
+      width: 130px;
+    }
+    .result-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      }
+      
+      .result-card p {
+        margin: 6px 0;
+        font-size: 1em;
+      }
+      
+      .result-card p strong {
+        color: #003366;
+      }
   }
-
-  thead {
-    display: none;
-  }
-
-  tbody tr {
-    background-color: #fff;
-    margin-bottom: 16px;
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  }
-
-  tbody td {
-    border: none;
-    padding: 6px 0;
-    font-size: 0.95em;
-    position: relative;
-  }
-
-  tbody td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    color: #003366;
-    display: inline-block;
-    width: 130px;
-  }
-}
   
   
   .form-row {
@@ -158,3 +174,5 @@ body {
     tbody tr:nth-child(odd) {
         background-color: #f9fcff;
       }
+    
+      
