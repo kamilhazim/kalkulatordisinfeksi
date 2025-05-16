@@ -1,0 +1,156 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding: 20px;
+    max-width: 700px;
+    margin: auto;
+    background-color: #f7f9fc;
+    color: #222;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #003366; /* KKM navy blue */
+  }
+  
+  label {
+    margin-top: 12px;
+    font-weight: bold;
+    display: block;
+  }
+  
+  input, select, button {
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    font-size: 1em;
+  }
+  
+  input:focus, select:focus {
+    border-color: #006699;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,102,153,0.3);
+  }
+  
+  button {
+    background-color: #003366;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #005599;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    th:nth-child(4), td:nth-child(4),
+    th:nth-child(5), td:nth-child(5) {
+    width: 100px;
+    white-space: nowrap;
+    text-align: center;
+  }
+  th {
+      position: sticky;
+      top: 0;
+      background-color: #e9f2fb;
+      z-index: 1;
+    }
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #e9f2fb;
+    color: #003366;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+  
+    h2 {
+      font-size: 1.4em;
+    }
+  
+    input, select, button {
+      font-size: 1.1em;
+    padding: 12px;
+    }
+  
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  
+    th, td {
+      min-width: 100px;
+    }
+  
+    table, thead, tbody, th, td, tr {
+      font-size: 0.9em;
+    }
+   }
+  
+  
+  .form-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      min-width: auto;
+    }
+    
+    #volume {
+      width: 140px;
+    }
+    
+    #unit {
+      width: 140px;
+    }
+  
+    .form-group label {
+      font-size: 0.9em;
+      margin-bottom: 4px;
+    }
+  
+    .form-center {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  
+    .section-divider {
+      border: none;
+      height: 1px;
+      background-color: #ccc;
+      margin: 30px auto;
+      width: 80%;
+    }
+    
+    tbody tr:nth-child(odd) {
+        background-color: #f9fcff;
+      }
