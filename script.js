@@ -45,14 +45,14 @@ function kira() {
       }
   
       output += `
-        <tr>
-          <td>${item.situasi}</td>
-          <td>${item.aplikasi}</td>
-          <td>1:${item.ratio}</td>
-          <td>${formatVolume(chemical)}</td>
-          <td>${formatVolume(water)}</td>
-        </tr>
-      `;
+      <tr>
+        <td data-label="Situasi">${item.situasi}</td>
+        <td data-label="Aplikasi">${item.aplikasi}</td>
+        <td data-label="Nisbah">1:${item.ratio}</td>
+        <td data-label="Bahan Peluntur">${formatVolume(chemical)}</td>
+        <td data-label="Air">${formatVolume(water)}</td>
+      </tr>
+    `;
     });
   
     document.getElementById("hasil").style.display = "table";
