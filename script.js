@@ -53,16 +53,22 @@ function kira() {
           <td data-label="Air">${formatVolume(water)}</td>
         </tr>
       `;
+
+      
   
       cardOutput += `
-        <div class="result-card">
-          <p><strong>Situasi:</strong> ${item.situasi}</p>
+      <div class="result-card">
+        <div class="card-header">${item.situasi}</div>
+        <div class="card-body">
           <p><strong>Aplikasi:</strong> ${item.aplikasi}</p>
           <p><strong>Nisbah:</strong> 1:${item.ratio}</p>
-          <p><strong>Bahan Peluntur:</strong> ${formatVolume(chemical)}</p>
-          <p><strong>Air:</strong> ${formatVolume(water)}</p>
+          <div class="amount-highlight">
+            <p><strong>🧴 Bahan Peluntur:</strong> ${formatVolume(chemical)}</p>
+            <p><strong>💧 Air:</strong> ${formatVolume(water)}</p>
+          </div>
         </div>
-      `;
+      </div>
+    `;
     });
   
     document.getElementById("hasilBody").innerHTML = tableRows;
