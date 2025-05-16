@@ -2,14 +2,14 @@ function kira() {
     const inputVolume = parseFloat(document.getElementById("volume").value);
     const selectedUnit = document.getElementById("unit").value;
   
-    // If input is invalid or empty, hide the table and return
     if (!inputVolume || inputVolume <= 0 || isNaN(inputVolume)) {
       document.getElementById("hasil").style.display = "none";
       document.getElementById("hasilBody").innerHTML = "";
+      document.getElementById("cardContainer").style.display = "none";
+      document.getElementById("cardContainer").innerHTML = "";
       return;
     }
   
-    // Convert to liters
     const finalVolume = selectedUnit === "mL" ? inputVolume / 1000 : inputVolume;
   
     const data = [
@@ -25,37 +25,56 @@ function kira() {
       },
       {
         ratio: 499,
-        situasi: "",
+        situasi: "Semasa tiada kejadian penyakit berjangkit",
         aplikasi: "Permainan, pinggan mangkuk, pakaian"
       }
     ];
   
-    let output = "";
+    let tableRows = "";
+    let cardOutput = "";
+  
     data.forEach(item => {
       const totalParts = 1 + item.ratio;
       const chemical = finalVolume / totalParts;
       const water = finalVolume - chemical;
   
       function formatVolume(value) {
-        if (value >= 1) {
-          return `${value.toFixed(2)} L`;
-        } else {
-          return `${Math.round(value * 1000)} mL`;
-        }
+        return value >= 1
+          ? `${value.toFixed(2)} L`
+          : `${Math.round(value * 1000)} mL`;
       }
   
-      output += `
-      <tr>
-        <td data-label="Situasi">${item.situasi}</td>
-        <td data-label="Aplikasi">${item.aplikasi}</td>
-        <td data-label="Nisbah">1:${item.ratio}</td>
-        <td data-label="Bahan Peluntur">${formatVolume(chemical)}</td>
-        <td data-label="Air">${formatVolume(water)}</td>
-      </tr>
-    `;
+      tableRows += `
+        <tr>
+          <td data-label="Situasi">${item.situasi}</td>
+          <td data-label="Aplikasi">${item.aplikasi}</td>
+          <td data-label="Nisbah">1:${item.ratio}</td>
+          <td data-label="Bahan Peluntur">${formatVolume(chemical)}</td>
+          <td data-label="Air">${formatVolume(water)}</td>
+        </tr>
+      `;
+  
+      cardOutput += `
+        <div class="result-card">
+          <p><strong>Situasi:</strong> ${item.situasi}</p>
+          <p><strong>Aplikasi:</strong> ${item.aplikasi}</p>
+          <p><strong>Nisbah:</strong> 1:${item.ratio}</p>
+          <p><strong>Bahan Peluntur:</strong> ${formatVolume(chemical)}</p>
+          <p><strong>Air:</strong> ${formatVolume(water)}</p>
+        </div>
+      `;
     });
   
+    document.getElementById("hasilBody").innerHTML = tableRows;
     document.getElementById("hasil").style.display = "table";
-    document.getElementById("hasilBody").innerHTML = output;
+  
+    document.getElementById("cardContainer").innerHTML = cardOutput;
+    document.getElementById("cardContainer").style.display = "none";
+  
+    // Automatically show card version only on small screens
+    if (window.innerWidth < 600) {
+      document.getElementById("hasil").style.display = "none";
+      document.getElementById("cardContainer").style.display = "block";
+    }
   }
   
